@@ -3,3 +3,11 @@ kind: Application
 metadata:
   name: application-from-scratch
 spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: helm/nginx
+    repoURL: https://github.com/kyawminlwin/argocd.git
+    targetRevision: main
