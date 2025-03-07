@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: print-workflow-name
+  namespace: argo
+spec:
+  entrypoint: print-name
+  templates:
+  - name: print-name
+    script:
+      image: alpine:latest
+      command: [sh]
+      source: |
+        echo "Workflow name: {{workflow.name}}"
